@@ -111,7 +111,22 @@ module Selection
     SQL
 
     rows_to_array(rows)
-  end 
+  end
+  
+  def where(*args)
+    if args.count > 1
+      expression = args.shift
+      params = args
+    end
+
+    sql = <<-SQL
+      SELECT #{columns.join ","} FROM #{table}
+      WHERE #{expression};
+    SQL
+
+    rows = connection.execute(sql, params)
+    rows_to_array(rows)
+  end
 
   private 
 
@@ -127,8 +142,13 @@ module Selection
   end 
 
   def method_missing(m, *args, &block)
-    if m == :find_by_name 
-      find_by(:name, *args[0])
+    if m.match(/find_by_/)
+      some_attribute_name = m.to_s.split('find_by_')[1]
+      if columns.include?(some_attribute_name)
+        find_by(some_attribute_name, *args)
+      else 
+        raise "#{m} is not a valid method."
+      end 
     end 
-  end  
+  end
 end 
