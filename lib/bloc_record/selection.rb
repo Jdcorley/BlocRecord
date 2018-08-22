@@ -117,7 +117,30 @@ module Selection
     if args.count > 1
       expression = args.shift
       params = args
+    else 
+      case args.first 
+      when String 
+        expression = args.first 
+      when Hash 
+        expression_hash = BlocRecord::Utility.convert_keys(args.first)
+        expression = expression_hash.map {|key, value| "#{key}=#{BlocRecord::Utility.sql_strings(value)}"}.join(" and ")
+      end 
+    end 
+
+ def order(*args)
+    if args.count > 1
+      order = args.join(",")
+    else
+      order = args.first.to_s
     end
+
+    rows = connection.execute <<-SQL
+      SELECT * FROM 
+      ORDER BY
+    SQL
+      rows_to_array(rows)
+ end
+
 
     sql = <<-SQL
       SELECT #{columns.join ","} FROM #{table}
@@ -127,6 +150,31 @@ module Selection
     rows = connection.execute(sql, params)
     rows_to_array(rows)
   end
+
+  def join(*args)
+    if args.count > 1
+      joins = args.map { |arg| "INNER JOIN #{arg} ON #{arg}.#{table}_id = #{table}.id"}.join(" ")
+      rows = connection.execute <<-SQL
+         SELECT * FROM #{table} #{joins}
+      SQL
+    else
+      case args.first
+      when String
+        rows = connection.execute <<-SQL
+           SELECT * FROM #{table} #{BlocRecord::Utility.sql_strings(args.first)};
+        SQL
+      when Symbol
+        rows = connection.execute <<-SQL
+           SELECT * FROM #{table}
+           INNER JOIN #{args.first} ON #{args.first}.#{table}_id = #{table}.id
+        SQL
+      end
+    end
+
+    rows_to_array(rows)
+  end
+
+
 
   private 
 
