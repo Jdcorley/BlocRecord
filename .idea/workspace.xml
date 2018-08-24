@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c29f306-9769-49bf-b86c-e216fe6accf0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/bloc_record/selection.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bloc_record/selection.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,16 +32,17 @@
     <session id="1581482378">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="rb" value="4" />
+          <entry key="rb" value="18" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -48,17 +50,17 @@
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Ruby" value="4" />
+          <entry key="Ruby" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="rb" value="600" />
+          <entry key="rb" value="638" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="600" />
+          <entry key="Ruby" value="638" />
         </counts>
       </usages-collector>
     </session>
@@ -67,7 +69,22 @@
     <favorites_list name="bloc_record" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/bloc_record/base.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/bloc_record/connection.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,18 +102,17 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3840" />
-    <option name="y" value="-8" />
-    <option name="width" value="3840" />
-    <option name="height" value="2168" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="1930" />
+    <option name="y" value="47" />
+    <option name="width" value="1910" />
+    <option name="height" value="1628" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -115,15 +131,26 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="bloc_record" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bloc_record" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_record" type="462c0819:PsiDirectoryNode" />
+              <item name="questions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_record" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="TODO_SCOPE" value="Scratches and Consoles" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../AddressBloc_w_BlocRecord" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -179,11 +206,13 @@
       <updated>1534883138895</updated>
       <workItem from="1534883140025" duration="2595000" />
       <workItem from="1534950439320" duration="5003000" />
+      <workItem from="1534961949971" duration="3034000" />
+      <workItem from="1534982138857" duration="1860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7598000" />
+    <option name="totallyTimeSpent" value="12492000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -195,9 +224,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3840" y="-8" width="3840" height="2168" extended-state="6" />
+    <frame x="1930" y="47" width="1910" height="1628" extended-state="4" />
+    <editor active="true" />
     <layout>
-      <window_info x="5386" y="448" width="477" height="706" id="Structure" order="0" sideWeight="0.5003539" side_tool="true" visible="true" weight="0.15671642" />
+      <window_info x="5386" y="448" width="477" height="706" id="Structure" order="0" sideWeight="0.5003539" side_tool="true" weight="0.16018124" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -208,15 +238,36 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973348" weight="0.1302966" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49973348" weight="0.32944915" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49973348" weight="0.20621932" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.25105932" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50026655" side_tool="true" weight="0.32951444" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="4" sideWeight="0.49964616" visible="true" weight="0.12713219" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="4" sideWeight="0.49964616" visible="true" weight="0.32491767" />
     </layout>
+    <layout-to-restore>
+      <window_info x="5386" y="448" width="477" height="706" id="Structure" order="0" sideWeight="0.5003539" side_tool="true" visible="true" weight="0.16018124" />
+      <window_info id="Favorites" order="1" side_tool="true" weight="0.32995737" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32997882" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973348" weight="0.1302966" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49973348" visible="true" weight="0.20621932" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25105932" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50026655" side_tool="true" weight="0.32951444" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="4" sideWeight="0.49964616" visible="true" weight="0.15778251" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -255,7 +306,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/lib/bloc_record/selection.rb</url>
-          <line>178</line>
+          <line>166</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
@@ -273,24 +324,93 @@
     <entry file="file://$PROJECT_DIR$/.idea/bloc_record.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs24/basic_object.rb">
+    <entry file="file://$PROJECT_DIR$/lib/bloc_record.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6699">
-          <caret line="231" column="8" selection-start-line="231" selection-start-column="8" selection-end-line="231" selection-end-column="8" />
+        <state relative-caret-position="29">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bloc_record/base.rb">
+    <entry file="file://$PROJECT_DIR$/lib/bloc_record/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="783">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bloc_record/persistence.rb">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/bloc_record/selection.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55">
-          <caret line="134" column="8" lean-forward="true" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+        <state relative-caret-position="58">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#38#433#0" />
+            <element signature="e#62#427#2" />
+            <element signature="e#131#254#0" />
+            <element signature="e#147#244#2" />
+            <element signature="e#294#382#0" />
+            <element signature="e#437#724#0" />
+            <element signature="e#458#718#2" />
+            <element signature="e#593#667#0" />
+            <element signature="e#728#956#0" />
+            <element signature="e#801#917#0" />
+            <element signature="e#960#1185#0" />
+            <element signature="e#1025#1108#0" />
+            <element signature="e#1146#1179#0" />
+            <element signature="e#1189#1389#0" />
+            <element signature="e#1260#1343#0" />
+            <element signature="e#1393#1641#0" />
+            <element signature="e#1420#1635#2" />
+            <element signature="e#1470#1566#0" />
+            <element signature="e#1645#1830#0" />
+            <element signature="e#1700#1785#0" />
+            <element signature="e#1834#2008#0" />
+            <element signature="e#1886#1963#0" />
+            <element signature="e#2012#2186#0" />
+            <element signature="e#2063#2141#0" />
+            <element signature="e#2190#2321#0" />
+            <element signature="e#2235#2282#0" />
+            <element signature="e#2325#4171#0" />
+            <element signature="e#2346#2722#0" />
+            <element signature="e#2429#2714#1" />
+            <element signature="e#2623#2690#0" />
+            <element signature="e#2728#3034#0" />
+            <element signature="e#2751#2880#0" />
+            <element signature="e#2921#2990#0" />
+            <element signature="e#3038#3681#0" />
+            <element signature="e#3058#3650#0" />
+            <element signature="e#3099#3164#0" />
+            <element signature="e#3214#3254#0" />
+            <element signature="e#3280#3642#1" />
+            <element signature="e#3355#3436#0" />
+            <element signature="e#3508#3620#0" />
+            <element signature="e#3696#3802#0" />
+            <element signature="e#3730#3796#2" />
+            <element signature="e#3806#3886#0" />
+            <element signature="e#3843#3880#0" />
+            <element signature="e#3890#4167#0" />
+            <element signature="e#3923#4161#2" />
+            <element signature="e#4004#4153#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs24/basic_object.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bloc_record/connection.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bloc_record/base.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
         </state>
       </provider>
     </entry>
