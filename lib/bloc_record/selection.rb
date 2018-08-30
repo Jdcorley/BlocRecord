@@ -124,24 +124,32 @@ module Selection
         expression = expression_hash.map { |key, value| "#{key}=#{BlocRecord::Utility.sql_strings(value)}" }.join(' and ')
       end
     end
-  end 
+  end
 
-    def order(*args)
-      case args.first 
-      when String 
-        if args.first > 1 
-          order = args.join(",")
-        end 
-      when Hash 
-        order_hash = BlocRecord::Utility.convert_keys(args)
-        order = order_hash.map {|key, value| "#{key} #{BlocRecord::Utility.sql_strings(value)}"}.join 
-      end 
-      rows = connection.execute <<-SQL
+  def order(*args)
+    if args.count > 1
+      order = [] 
+      args.map! do |x|
+        unless x.class != Hash
+          x.map {|key, value| x = "#{key} #{value}"}
+        end
+        order << x
+      end
+      order = orders.join(', ')
+    else 
+      if args[0].class == Hash 
+        order_hash = convert_keys(args[0])
+        order = order_hash.map {|key, value| "#{key} #{sql_strings(value)}"}.join(", ")
+      else
+        order = args.first.join(", ")
+      end
+    end
+    rows = connection.execute <<-SQL
         SELECT * FROM #{table}
         ORDER BY #{order_and_direction};
-      SQL
-      rows_to_array(rows)
-    end
+    SQL
+    rows_to_array(rows)
+  end
 
   def join(*args)
     if args.count > 1
@@ -159,11 +167,20 @@ module Selection
         rows = connection.execute <<-SQL
            SELECT * FROM #{table}
            INNER JOIN #{args.first} ON #{args.first}.#{table}_id = #{table}.id
-           INNER JOIN #{args.second} ON #{args.second}.#{table}_id = #{table}.id 
+        SQL
+      when Hash
+        expression_hash = BlocRecord::Utility.convert_keys(args.first)
+        expression = expression_hash.map do |key, value|
+          "#{key}=#{BlocRecord::Utility.sql_strings(value)}".join(',')
+        end
+        rows = connection.execute <<-SQL
+          SELECT * FROM #{table}
+          INNER JOIN #{expression[0]} ON #{expression[0]}.#{table}_id = #{table}.id
+          INNER JOIN #{expression[1]} ON #{expression[1]}.#{expression[0]}_id = #{table}.id
         SQL
       end
     end
-
+  end
     rows_to_array(rows)
   end
 
