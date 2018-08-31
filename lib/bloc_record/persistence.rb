@@ -59,24 +59,38 @@ module Persistence
       new(data)
     end
 
-    def update(_id, updates)
-      updates = BlocRecord::Utility.convert_keys(updates)
-      updates.delete 'id'
-      updates_array = update.map { |key, value| "#{key}=#{BlocRecord::Utility.sql_strings(value)}" }
+    def update(ids, updates)
+      case updates
+      when Hash
+        updates = BlocRecord::Utility.convert_keys(updates)
 
-      where_clause = if ids.class == Integer
-                       "WHERE id = #{ids};"
-                     elsif ids.class == Array
-                       ids.empty? ? ';' : "WHERE id IN (#{ids.join(',')});"
-                     else
-                       ';'
-                     end
-      connection.execute << - SQL
-      UPDATE # {table}
-      SET # {updates_array * ","} #{where_clause}
-      SQL
+        updates.delete 'id'
+        updates_array = updates.map { |key, _value| "#{key}=#{BlocRecord::Utility.sql_strings(values)}" }
 
-      true
+        where_clause = if ids.class == Integer
+                         "WHERE id = #{ids};"
+                       elsif ids.class == Array
+                         ids.empty? ? ';' : "WHERE id IN (#{ids.join ','});"
+                       else
+                         ';'
+                       end
+
+        connection.execute <<-SQL
+          UPDATE #{table}
+          SET #{updates_array * ','}
+        SQL
+
+        true
+
+      when Array
+        updates.each_with_index { |data, index| update(ids[index], data) }
+      end
+    end
+  end
+
+  def method_missing(method, *args, &block)
+    unless method != :update_name
+      update(self.id, {name: *args[0]})
     end
   end
 end
