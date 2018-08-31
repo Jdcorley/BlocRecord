@@ -128,20 +128,18 @@ module Selection
 
   def order(*args)
     if args.count > 1
-      order = [] 
+      order = []
       args.map! do |x|
-        unless x.class != Hash
-          x.map {|key, value| x = "#{key} #{value}"}
-        end
+        x.map { |key, value| x = "#{key} #{value}" } unless x.class != Hash
         order << x
       end
       order = orders.join(', ')
-    else 
-      if args[0].class == Hash 
+    else
+      if args[0].class == Hash
         order_hash = convert_keys(args[0])
-        order = order_hash.map {|key, value| "#{key} #{sql_strings(value)}"}.join(", ")
+        order = order_hash.map { |key, value| "#{key} #{sql_strings(value)}" }.join(', ')
       else
-        order = args.first.join(", ")
+        order = args.first.join(', ')
       end
     end
     rows = connection.execute <<-SQL
@@ -180,33 +178,28 @@ module Selection
         SQL
       end
     end
-  end
     rows_to_array(rows)
   end
+end
 
-  private
+private
 
-  def init_object_from_row(row)
-    if row
-      data = Hash[columns.zip(row)]
-      new(data)
-    end
+def init_object_from_row(row)
+  if row
+    data = Hash[columns.zip(row)]
+    new(data)
   end
+end
 
-  def rows_to_array(rows)
-    collection = BlocRecord::Collection.new
-    rows.each { |row| collection << new(Hash[columns.zip(row)]) }
-    collection 
-  end
+def rows_to_array(rows)
+  collection = BlocRecord::Collection.new
+  rows.each { |row| collection << new(Hash[columns.zip(row)]) }
+  collection
+end
 
-  def method_missing(m, *args)
-    if m =~ /find_by_/
-      some_attribute_name = m.to_s.split('find_by_')[1]
-      if columns.include?(some_attribute_name)
-        find_by(some_attribute_name, *args)
-      else
-        raise "#{m} is not a valid method."
-      end
-    end
+def method_missing(m, *args)
+  unless m !~ /find_by_/
+    some_attribute_name = m.to_s.split('find_by_')[1]
+    columns.include?(some_attribute_name) ? find_by(some_attribute_name, *args) : raise "#{m} is not a valid method."
   end
 end
