@@ -101,28 +101,37 @@ module Persistence
       end
     end
 
-    def destroy_all(conditions_hash=nil)
-      if conditions_hash && !conditions_hash.empty?
-        conditions_hash = BlocRecord::Utility.convert_keys(conditions_hash)
-        conditions = conditions_hash.map {|key, value| "#{key}=#{BlocRecord::Utility.sql_strings(value)}"}.join(" and ")
-
-        connection.execute <<-SQL
-           DELETE FROM #{table}
-           WHERE #{conditions};
-        SQL
-      else
+    def destroy_all(*args)
+      if args.empty?
         connection.execute <<-SQL
           DELETE FROM #{table}
         SQL
+        return true
+      elsif args.count > 1
+        expression = args.shift
+        params = args
+      else
+        case args.first
+        when String
+          experssion = args. first
+        when Hash
+          conditions = BlocRecord::Utility.convert_keys(args.first)
+          expression = conditions.map {|key,value| "#{key}=#{BlocRecord::Utility.sql_strings(value)}"}.join(" and ")
+        end
       end
-
+      sql <<-SQL
+        DELETE FROM #{table}
+        WHERE #{expression};
+      SQL
+      connection.execute(sql, params)
       true
     end
   end
 
+
   def method_missing(method, *args, &block)
     unless method != :update_name
-      update(self.id, {name: *args[0]})
+      update(self.id, {name: args[0]})
     end
   end
 end
