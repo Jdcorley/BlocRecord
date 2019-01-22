@@ -1,0 +1,26 @@
+1. What's a RubyGem and why would you use one?
+  A: A ruby gem is a library of ruby code in the form of various modules, classes and methods (eventually objects if you dig far enough). It is a way of consolidating ruby code and programs which makes it more convenient to add on to other programs quickly and elegently. It provides you with a way to store your code you may end up reusing and mix it in with new programs you might be developing when need be. It is a great way to organize ruby code and make applications more modular.
+
+2. What's the difference between lazy and eager loading?
+  A: Lazy loading is when an action is carried only at the time it is needed. Eager loading is when an action is carried out in advance of the actual point where it might be needed. For example if you were to lazy load a database schema it would set the tables up from the schema only at the point when it is ready to post entries to that table. In the case of eager it would set up the tables of the database in the schema ahead of time so that when something is ready to be inserted to the database it is ready to go beforehand.
+
+3. What's the difference between the CREATE TABLE and INSERT INTO SQL statements?
+  A: CREATE TABLE is actually creating a new table by the name you specify and the attributes and types that you pass to it. INSERT INTO is different in that, it allows you to directly insert data into the database table that has already been created. So if you used CREATE TABLE user(...) for example then you could use INSERT INTO user to insert into the table user created by the CREATE TABLE statement.
+
+
+4. What's the difference between extend and include? When would you use one or the other?
+  A: In ruby include is a simple way of importing a module of code into other ruby code or another file or module of ruby code to extend the use of your already coded modules. The difference between this and extend though is that in include you just have access to the methods from that given module but they are still technically in a whole different class of thier on. With extend you are actually extending the class methods from that module into the one you are using the extend in so now the methods from the extended module will be native class methods of any instances of that class that they are included in. Its like a class extension in a way. 
+
+5. In persistence.rb, why do the save methods need to be instance (vs. class) methods? 
+  A: The save methods need to be instance methods rather then class methods because since we are saving an object to an sqlite database we need to make an instance object that can be sent over to the database as its own object and saved into a table. 
+
+6. Given the Jar-Jar Binks example earlier, what is the final SQL query in persistence.rb's save! method?
+
+A:
+  UPDATE character
+  SET character_name = 'Jar-Jar Binks', 
+      star_rating = 1
+  WHERE id = 1;
+
+7. AddressBook's entries instance variable no longer returns anything. We'll fix this in a later checkpoint. What changes will we need to make? 
+  We will have to add a method that gets the instance variables and adds them to the database table saving them in the proper fields. 
